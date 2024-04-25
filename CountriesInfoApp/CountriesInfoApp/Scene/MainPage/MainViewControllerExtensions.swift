@@ -1,9 +1,9 @@
-//
 //  MainViewControllerExtensions.swift
 //  CountriesInfoApp
 //
 //  Created by Tamuna Kakhidze on 24.04.24.
 //
+
 import UIKit
 
 extension MainVC: UITableViewDataSource {
@@ -46,48 +46,8 @@ extension MainVC: UITableViewDelegate {
             countryItem = viewModel.countriesArray[indexPath.section]
         }
         
-        let region = countryItem.region
-        let borders = countryItem.borders
-        var bordersFive = [String]()
-        
-        if let borders = borders {
-            bordersFive = Array(borders.prefix(5))
-        }
-        else {
-            bordersFive = ["None"]
-        }
-        
-        let alt: String?
-        let flagAlt = countryItem.flags?.alt
-        let name = (countryItem.name?.official)!
-        let independent = countryItem.independent
-        let capital = countryItem.capital
-        let flagUrl = countryItem.flags!.png
-        let streetLink = URL(string: countryItem.maps?.openStreetMaps ?? "")
-        let googleLink = URL(string: countryItem.maps?.googleMaps ?? "")
-        let startOfWeek = countryItem.startOfWeek
-        
-        if let altSpellings = countryItem.altSpellings, altSpellings.indices.contains(1) {
-            alt = altSpellings[1]
-        } else if let altSpellings = countryItem.altSpellings?.first {
-            alt = altSpellings
-        } else {
-            alt = nil
-        }
-        
-        
         if viewModel.countriesArray.firstIndex(where: { $0.altSpellings?[0] == countryItem.altSpellings?[0] }) != nil {
-            let detailsVC = DetailsViewController(name: name, flagUrl: flagUrl)
-            detailsVC.detailsPageView.region = region
-            detailsVC.detailsPageView.borders = bordersFive
-            detailsVC.detailsPageView.altspellings = alt
-            detailsVC.detailsPageView.flagAlt = flagAlt
-            detailsVC.detailsPageView.independent = independent
-            detailsVC.detailsPageView.capital = capital
-            detailsVC.detailsPageView.streetMapLink = streetLink
-            detailsVC.detailsPageView.googleLink = googleLink
-            detailsVC.detailsPageView.startOfWeek = startOfWeek
-            navigationController?.pushViewController(detailsVC, animated: true)
+            navigateToDetailsPage(country: countryItem)
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -118,11 +78,22 @@ extension MainVC: UISearchBarDelegate {
 
 
 extension MainVC: CountriesViewModelDelegate {
+ 
     func countriesFetched(_ countries: [Country]) {
         self.countries = countries
         DispatchQueue.main.async {
             self.mainPageView.tableView.reloadData()
         }
+        
+    }
+    
+    func navigateToDetailsPage(country: Country) {
+        let detailsVC = DetailsViewController(country: country)
+        navigationController?.pushViewController(detailsVC, animated: true)
+
+    }
+    
+    func cellsConfigured() {
         
     }
 }

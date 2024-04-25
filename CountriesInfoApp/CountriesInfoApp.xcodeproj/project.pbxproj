@@ -23,7 +23,6 @@
 		A954C3F72BD92FF3005CF5A4 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3F62BD92FF3005CF5A4 /* MainPageViewModel.swift */; };
 		A954C3FA2BD94950005CF5A4 /* DetailsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3F92BD94950005CF5A4 /* DetailsPageView.swift */; };
 		A954C3FC2BD94984005CF5A4 /* DetailsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3FB2BD94984005CF5A4 /* DetailsPageViewModel.swift */; };
-		A954C3FE2BD97328005CF5A4 /* SelectedCountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3FD2BD97328005CF5A4 /* SelectedCountryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +44,6 @@
 		A954C3F62BD92FF3005CF5A4 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
 		A954C3F92BD94950005CF5A4 /* DetailsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageView.swift; sourceTree = "<group>"; };
 		A954C3FB2BD94984005CF5A4 /* DetailsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewModel.swift; sourceTree = "<group>"; };
-		A954C3FD2BD97328005CF5A4 /* SelectedCountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCountryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +157,6 @@
 				A92FD9682BD4112D00843793 /* DetailsViewController.swift */,
 				A954C3F92BD94950005CF5A4 /* DetailsPageView.swift */,
 				A954C3FB2BD94984005CF5A4 /* DetailsPageViewModel.swift */,
-				A954C3FD2BD97328005CF5A4 /* SelectedCountryModel.swift */,
 			);
 			path = DetailsPage;
 			sourceTree = "<group>";
@@ -241,7 +238,6 @@
 				A954C3F32BD92F31005CF5A4 /* MainPageView.swift in Sources */,
 				A92FD9672BD3F27200843793 /* labelExtension.swift in Sources */,
 				A92FD94B2BD3EAB700843793 /* AppDelegate.swift in Sources */,
-				A954C3FE2BD97328005CF5A4 /* SelectedCountryModel.swift in Sources */,
 				A92FD9692BD4112D00843793 /* DetailsViewController.swift in Sources */,
 				A92FD9652BD3F17100843793 /* CountryCell.swift in Sources */,
 				A954C3F52BD92F88005CF5A4 /* MainViewControllerExtensions.swift in Sources */,

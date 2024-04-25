@@ -14,5 +14,4 @@ class DetailsPageViewModel {
         UIApplication.shared.open(url)
     }
     
-    
 }

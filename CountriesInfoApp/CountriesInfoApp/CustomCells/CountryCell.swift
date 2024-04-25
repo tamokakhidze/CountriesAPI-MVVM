@@ -20,7 +20,8 @@ class CountryCell: UITableViewCell {
         contentView.backgroundColor = UIColor(named: "backgroundcolor")
         sendSubviewToBack(contentView)
         contentView.clipsToBounds = true
-        contentView.layer.borderColor = UIColor(named: "textcolor")!.cgColor
+        //contentView.layer.borderColor = UIColor(named: "textcolor")?.cgColor
+        contentView.layer.borderColor = UIColor(.black).cgColor
     }
     
     required init?(coder: NSCoder) {

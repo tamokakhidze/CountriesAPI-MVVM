@@ -9,17 +9,6 @@ import UIKit
 
 class DetailsPageView: UIView {
     
-    var region: String?
-    var independent: Bool?
-    var borders: [String]?
-    var altspellings: String?
-    var flagAlt: String?
-    var capital: [String]?
-    var name: String
-    var streetMapLink: URL?
-    var googleLink: URL?
-    var startOfWeek: String?
-    var flagUrl: String
     var flagImage = UIImageView()
     var mainScrollView = UIScrollView()
     var contentView = UIView()
@@ -46,75 +35,6 @@ class DetailsPageView: UIView {
     var map1 = UIImageView()
     var map2 = UIImageView()
     var imageToURLMap: [UIImageView: URL] = [:]
-    
-    override init(frame: CGRect) {
-        self.name = ""
-        self.flagUrl = ""
-        super.init(frame: frame)
-    }
-    
-    
-    init(frame: CGRect, region: String? = nil, independent: Bool? = nil, borders: [String]? = nil, altspellings: String? = nil, flagAlt: String? = nil, name: String, streetMapLink: URL? = nil, googleLink: URL? = nil, startOfWeek: String? = nil, flagUrl: String) {
-        self.name = name
-        self.region = region
-        self.independent = independent
-        self.borders = borders
-        self.altspellings = altspellings
-        self.flagAlt = flagAlt
-        self.streetMapLink = streetMapLink
-        self.googleLink = googleLink
-        self.startOfWeek = startOfWeek
-        self.flagUrl = flagUrl
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupUI() {
-        
-        let flagURL = URL(string: flagUrl)
-        contentView.backgroundColor = UIColor(named: "backgroundcolor")
-        mainScrollView = configureScrollView()
-        contentView = configureContentView()
-        
-        flagImage = configureFlagImageView()
-        
-        
-        flagImage.setImage(with: flagURL!)
-        
-        aboutheflag = infoLabel(topAnchor: flagImage.bottomAnchor, constant: 25, text: "About the flag")
-        flagDescriopion = flagDescriptionLabel(descriptionText: flagAlt ?? "This flag does not have a description")
-        
-        divider1 = createDividerView(topAnchor: flagDescriopion.bottomAnchor, constant: 20)
-        
-        basicInfo = infoLabel(topAnchor: divider1.bottomAnchor, constant: 24, text: "Basic information")
-        independentLabel = createSomeInfoLabel(topAnchor: basicInfo.bottomAnchor, constant: 15, text: "Independent:")
-        independentTextLabel = createSomeInfoLabelTextLabels(topAnchor: basicInfo.bottomAnchor, constant: 15, text: String((independent) ?? false).uppercased())
-        
-        spellingLabel = createSomeInfoLabel(topAnchor: independentLabel.bottomAnchor, constant: 15, text: "Spelling:")
-        spellingTextLabel = createSomeInfoLabelTextLabels(topAnchor: independentTextLabel.bottomAnchor, constant: 15, text: altspellings ?? "None")
-        
-        capitalLabel = createSomeInfoLabel(topAnchor: spellingLabel.bottomAnchor, constant: 15, text: "Capital")
-        capitalTextLabel = createSomeInfoLabelTextLabels(topAnchor: spellingTextLabel.bottomAnchor, constant: 15, text: capital?[0] ?? "Capital")
-        
-        startOfWeekLabel = createSomeInfoLabel(topAnchor: capitalLabel.bottomAnchor, constant: 15, text: "Start of week:")
-        startOfWeekTextLabel = createSomeInfoLabelTextLabels(topAnchor: capitalTextLabel.bottomAnchor, constant: 15, text: startOfWeek ?? "Monday")
-        
-        regionLabel = createSomeInfoLabel(topAnchor: startOfWeekLabel.bottomAnchor, constant: 15, text: "Region:")
-        regionTextLabel = createSomeInfoLabelTextLabels(topAnchor: startOfWeekTextLabel.bottomAnchor, constant: 15, text: region ?? "Earth")
-        
-        neighborsLabel = createSomeInfoLabel(topAnchor: regionLabel.bottomAnchor, constant: 15, text: "Neighbors:")
-        neighborsTextLabel = createSomeInfoLabelTextLabels(topAnchor: regionTextLabel.bottomAnchor, constant: 15, text: borders?.joined(separator: ", ") ?? "None")
-        divider2 = createDividerView(topAnchor: neighborsLabel.bottomAnchor, constant: 20)
-        
-        usefulLinks = infoLabel(topAnchor: divider2.bottomAnchor, constant: 24, text: "Useful links")
-        mapsStack = configureMapsStackView()
-        map1 = configureMap(image: UIImage(named:"streetmap")!)
-        map2 = configureMap(image: UIImage(named: "google")!)
-        
-    }
     
     func configureScrollView() -> UIScrollView {
         let scrollView = UIScrollView()
@@ -153,7 +73,6 @@ class DetailsPageView: UIView {
         countryNameLabel.widthAnchor.constraint(equalToConstant: 343).isActive = true
         countryNameLabel.textAlignment = .center
         countryNameLabel.font.withSize(17)
-        countryNameLabel.text = name
         countryNameLabel.textColor = UIColor(named: "textcolor")
         
         return countryNameLabel
@@ -238,6 +157,7 @@ class DetailsPageView: UIView {
         label.text = text
         label.numberOfLines = 0
         label.textColor = UIColor(named: "textcolor")
+        label.widthAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
         return label
     }
     
@@ -269,3 +189,4 @@ class DetailsPageView: UIView {
         return map
     }
 }
+

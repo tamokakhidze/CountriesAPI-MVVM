@@ -14,6 +14,8 @@ import UIKit
 
 protocol CountriesViewModelDelegate: AnyObject {
     func countriesFetched(_ countries: [Country])
+    func cellsConfigured()
+    func navigateToDetailsPage(country: Country) //Using to populate details page with infoo
 }
 
 class MainPageViewModel {
@@ -32,8 +34,6 @@ class MainPageViewModel {
             case .success(let success):
                 self?.countriesArray = success
                 self?.delegate?.countriesFetched(self!.countriesArray)
-                //self?.countriesArray = success
-                //self?.mainPageView.tableView.reloadData()
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
@@ -43,18 +43,16 @@ class MainPageViewModel {
     func fetchData(completion: @escaping (Result<[Country], Error>) -> Void) {
         NetworkService().getData(urlString: urlString, completion: completion)
     }
+//    
+//    var countryNames: [String] {
+//        countriesArray.map { country in
+//            country.name!.official
+//        }
+//    }
     
-    var countryNames: [String] {
-        countriesArray.map { country in
-            country.name!.official
-        }
+    func didSelectRow(index: IndexPath) {
+        delegate?.navigateToDetailsPage(country: countriesArray[index.section])
     }
-    
-    
-    
-    
-    
-    
     
     
     func configureCell(_ cell: CountryCell, at indexPath: IndexPath) {
@@ -66,7 +64,7 @@ class MainPageViewModel {
             cell.configureCell(name: country.name!.official, image: country.flags!.png)
         }
     }
-
+    
     var filteredCountry = [Country]()
     
 }
@@ -74,19 +72,4 @@ class MainPageViewModel {
 
 
 
-//extension MainPageViewModel: configuringCell {
-//    func displayCells() {
-//        <#code#>
-//    }
-//    
-//    func configureCell(_ cell: CountryCell, at indexPath: IndexPath) {
-//        let country = countriesArray[indexPath.section]
-//        if userSeaching {
-//            cell.configureCell(name: searchingCountry[indexPath.section].name!.official, image: searchingCountry[indexPath.section].flags!.png)
-//        }
-//        else {
-//            cell.configureCell(name: country.name!.official, image: country.flags!.png)
-//        }
-//    }
-//    
-//}
+
