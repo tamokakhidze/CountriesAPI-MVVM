@@ -70,8 +70,8 @@ class CountryCell: UITableViewCell {
         nextButton.widthAnchor.constraint(equalToConstant: 11).isActive = true
         nextButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         nextButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -23).isActive = true
-        }
-
+    }
+    
     func configureCell(name: String?, image: String) {
         nameLabel.text = name
         guard let imgUrl = URL(string: image) else { return  }

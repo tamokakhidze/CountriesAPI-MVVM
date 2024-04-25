@@ -4,6 +4,7 @@ class MainVC: UIViewController {
     
     var mainPageView: MainPageView
     var viewModel: MainPageViewModel
+    var countries: [Country] = []
     
     
     init() {
@@ -27,19 +28,10 @@ class MainVC: UIViewController {
         configureTableView()
         title = "Countries"
         navigationController?.navigationBar.prefersLargeTitles = true
-        loadData()
-    }
-    
-    func loadData() {
-        viewModel.fetchData() { [weak self] result in
-            switch result {
-            case .success(let success):
-                self?.viewModel.countriesArray = success
-                self?.mainPageView.tableView.reloadData()
-            case .failure(let failure):
-                print(failure.localizedDescription)
-            }
-        }
+        
+        viewModel.delegate = self
+        viewModel.viewdidload()
+        
     }
     
     func configureTableView() {
@@ -48,5 +40,8 @@ class MainVC: UIViewController {
         mainPageView.tableView.dataSource = self
         mainPageView.tableView.delegate = self
     }
-        
+    
 }
+
+
+

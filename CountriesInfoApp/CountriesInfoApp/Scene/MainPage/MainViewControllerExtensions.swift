@@ -23,21 +23,12 @@ extension MainVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell") as? CountryCell
         cell?.backgroundColor = .clear
-        let country = viewModel.countriesArray[indexPath.section]
-        //let current = viewModel.searchingCountry[indexPath.section]
-        if viewModel.userSeaching {
-            cell!.configureCell(name: viewModel.searchingCountry[indexPath.section].name!.official, image: viewModel.searchingCountry[indexPath.section].flags!.png)
-        }
-        else {
-            cell!.configureCell(name: country.name!.official, image: country.flags!.png)
-        }
-        print("row: \(indexPath.row), section: \(indexPath.section) is creating")
+        viewModel.configureCell(cell!, at: indexPath)
         
         return cell!
-       
+        
     }
     
 }
@@ -75,7 +66,7 @@ extension MainVC: UITableViewDelegate {
         let streetLink = URL(string: countryItem.maps?.openStreetMaps ?? "")
         let googleLink = URL(string: countryItem.maps?.googleMaps ?? "")
         let startOfWeek = countryItem.startOfWeek
-
+        
         if let altSpellings = countryItem.altSpellings, altSpellings.indices.contains(1) {
             alt = altSpellings[1]
         } else if let altSpellings = countryItem.altSpellings?.first {
@@ -84,7 +75,7 @@ extension MainVC: UITableViewDelegate {
             alt = nil
         }
         
-
+        
         if viewModel.countriesArray.firstIndex(where: { $0.altSpellings?[0] == countryItem.altSpellings?[0] }) != nil {
             let detailsVC = DetailsViewController(name: name, flagUrl: flagUrl)
             detailsVC.detailsPageView.region = region
@@ -97,11 +88,11 @@ extension MainVC: UITableViewDelegate {
             detailsVC.detailsPageView.googleLink = googleLink
             detailsVC.detailsPageView.startOfWeek = startOfWeek
             navigationController?.pushViewController(detailsVC, animated: true)
-            }
+        }
         
         tableView.deselectRow(at: indexPath, animated: true)
-
-        }
+        
+    }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
@@ -112,7 +103,7 @@ extension MainVC: UITableViewDelegate {
         return view
     }
     
-
+    
 }
 
 extension MainVC: UISearchBarDelegate {
@@ -125,3 +116,13 @@ extension MainVC: UISearchBarDelegate {
     }
 }
 
+
+extension MainVC: CountriesViewModelDelegate {
+    func countriesFetched(_ countries: [Country]) {
+        self.countries = countries
+        DispatchQueue.main.async {
+            self.mainPageView.tableView.reloadData()
+        }
+        
+    }
+}

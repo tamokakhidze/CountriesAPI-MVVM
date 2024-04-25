@@ -83,7 +83,7 @@ class DetailsPageView: UIView {
         
         
         flagImage.setImage(with: flagURL!)
-
+        
         aboutheflag = infoLabel(topAnchor: flagImage.bottomAnchor, constant: 25, text: "About the flag")
         flagDescriopion = flagDescriptionLabel(descriptionText: flagAlt ?? "This flag does not have a description")
         

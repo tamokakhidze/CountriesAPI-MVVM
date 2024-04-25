@@ -1,7 +1,7 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    
     var detailsPageView: DetailsPageView
     var viewModel: DetailsPageViewModel
     
@@ -29,7 +29,7 @@ class DetailsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-
+    
     func setupTapGestureRecognizer(for imageView: UIImageView, with url: URL?) {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
         imageView.isUserInteractionEnabled = true

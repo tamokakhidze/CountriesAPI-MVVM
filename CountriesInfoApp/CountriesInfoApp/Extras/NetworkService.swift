@@ -9,7 +9,7 @@ enum NetworkError: Error {
 class NetworkService {
     func getData<T: Decodable>(urlString: String, completion: @escaping (Result<T,Error>) ->(Void)) {
         let url = URL(string: urlString)!
-
+        
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
             
             if let error {
@@ -26,7 +26,7 @@ class NetworkService {
             }
             
             guard let data else { return }
-
+            
             do {
                 let decoder = JSONDecoder()
                 let object = try decoder.decode(T.self, from: data)
