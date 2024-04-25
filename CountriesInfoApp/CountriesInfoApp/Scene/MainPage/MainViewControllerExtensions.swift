@@ -25,6 +25,7 @@ extension MainVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell") as? CountryCell
+        cell?.backgroundColor = .clear
         let country = viewModel.countriesArray[indexPath.section]
         //let current = viewModel.searchingCountry[indexPath.section]
         if viewModel.userSeaching {

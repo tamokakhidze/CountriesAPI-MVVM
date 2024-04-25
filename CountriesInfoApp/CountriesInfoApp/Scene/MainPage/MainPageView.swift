@@ -29,7 +29,7 @@ class MainPageView: UIView {
         searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7).isActive = true
         searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -7).isActive = true
         searchBar.autocapitalizationType = .words
-        searchBar.backgroundColor = UIColor(named: "cellbackgroundcolor")
+        searchBar.backgroundImage = UIImage()
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 18).isActive = true
@@ -44,12 +44,3 @@ class MainPageView: UIView {
 #Preview {
     MainVC()
 }
-
-
-// #3D3D3D dark background
-// #7676803D search bar dark #767680
-// #4B4B4D; cell dark
-// next button - white
-// name of country white
-// nav title white
-//
