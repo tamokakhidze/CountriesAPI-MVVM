@@ -26,7 +26,7 @@ extension MainVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell") as? CountryCell
         cell?.backgroundColor = .clear
         viewModel.configureCell(cell!, at: indexPath)
-        
+        //cellsDidLoad(cell!, indexPath: indexPath)
         return cell!
         
     }
@@ -78,7 +78,11 @@ extension MainVC: UISearchBarDelegate {
 
 
 extension MainVC: CountriesViewModelDelegate {
- 
+    func configureCell(_ cell: CountryCell, indexPath: IndexPath) {
+        
+    }
+    
+   
     func countriesFetched(_ countries: [Country]) {
         self.countries = countries
         DispatchQueue.main.async {
@@ -93,7 +97,8 @@ extension MainVC: CountriesViewModelDelegate {
 
     }
     
-    func cellsConfigured() {
-        
+    func cellsDidLoad(_ cell: CountryCell, indexPath: IndexPath) {
+        cell.backgroundColor = .clear
     }
+    
 }

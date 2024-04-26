@@ -18,6 +18,10 @@
 		A92FD9652BD3F17100843793 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FD9642BD3F17100843793 /* CountryCell.swift */; };
 		A92FD9672BD3F27200843793 /* labelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FD9662BD3F27200843793 /* labelExtension.swift */; };
 		A92FD9692BD4112D00843793 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FD9682BD4112D00843793 /* DetailsViewController.swift */; };
+		A943FD8F2BDC0F3600406FAB /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A943FD8E2BDC0F3600406FAB /* LoginPageView.swift */; };
+		A943FD912BDC0F4600406FAB /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A943FD902BDC0F4600406FAB /* LoginPageViewController.swift */; };
+		A943FD932BDC0F5D00406FAB /* LoginPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A943FD922BDC0F5D00406FAB /* LoginPageViewModel.swift */; };
+		A943FD972BDC22DD00406FAB /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A943FD962BDC22DD00406FAB /* KeyChainManager.swift */; };
 		A954C3F32BD92F31005CF5A4 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3F22BD92F31005CF5A4 /* MainPageView.swift */; };
 		A954C3F52BD92F88005CF5A4 /* MainViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3F42BD92F88005CF5A4 /* MainViewControllerExtensions.swift */; };
 		A954C3F72BD92FF3005CF5A4 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3F62BD92FF3005CF5A4 /* MainPageViewModel.swift */; };
@@ -39,6 +43,10 @@
 		A92FD9642BD3F17100843793 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		A92FD9662BD3F27200843793 /* labelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = labelExtension.swift; sourceTree = "<group>"; };
 		A92FD9682BD4112D00843793 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		A943FD8E2BDC0F3600406FAB /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
+		A943FD902BDC0F4600406FAB /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		A943FD922BDC0F5D00406FAB /* LoginPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewModel.swift; sourceTree = "<group>"; };
+		A943FD962BDC22DD00406FAB /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		A954C3F22BD92F31005CF5A4 /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
 		A954C3F42BD92F88005CF5A4 /* MainViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerExtensions.swift; sourceTree = "<group>"; };
 		A954C3F62BD92FF3005CF5A4 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
@@ -69,6 +77,7 @@
 		A914D6982BD6C64000521395 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				A943FD8D2BDC0F0F00406FAB /* LoginPage */,
 				A954C3F82BD94606005CF5A4 /* DetailsPage */,
 				A954C3F12BD92EE9005CF5A4 /* MainPage */,
 			);
@@ -137,6 +146,17 @@
 				A92FD9582BD3EAB900843793 /* Info.plist */,
 			);
 			path = CountriesInfoApp;
+			sourceTree = "<group>";
+		};
+		A943FD8D2BDC0F0F00406FAB /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				A943FD8E2BDC0F3600406FAB /* LoginPageView.swift */,
+				A943FD902BDC0F4600406FAB /* LoginPageViewController.swift */,
+				A943FD922BDC0F5D00406FAB /* LoginPageViewModel.swift */,
+				A943FD962BDC22DD00406FAB /* KeyChainManager.swift */,
+			);
+			path = LoginPage;
 			sourceTree = "<group>";
 		};
 		A954C3F12BD92EE9005CF5A4 /* MainPage */ = {
@@ -237,14 +257,18 @@
 				A92FD9632BD3ED3600843793 /* Model.swift in Sources */,
 				A954C3F32BD92F31005CF5A4 /* MainPageView.swift in Sources */,
 				A92FD9672BD3F27200843793 /* labelExtension.swift in Sources */,
+				A943FD932BDC0F5D00406FAB /* LoginPageViewModel.swift in Sources */,
 				A92FD94B2BD3EAB700843793 /* AppDelegate.swift in Sources */,
 				A92FD9692BD4112D00843793 /* DetailsViewController.swift in Sources */,
+				A943FD8F2BDC0F3600406FAB /* LoginPageView.swift in Sources */,
 				A92FD9652BD3F17100843793 /* CountryCell.swift in Sources */,
 				A954C3F52BD92F88005CF5A4 /* MainViewControllerExtensions.swift in Sources */,
 				A92FD95F2BD3EB2D00843793 /* MainVC.swift in Sources */,
 				A92FD9612BD3EC2200843793 /* NetworkService.swift in Sources */,
+				A943FD912BDC0F4600406FAB /* LoginPageViewController.swift in Sources */,
 				A954C3FA2BD94950005CF5A4 /* DetailsPageView.swift in Sources */,
 				A92FD94D2BD3EAB700843793 /* SceneDelegate.swift in Sources */,
+				A943FD972BDC22DD00406FAB /* KeyChainManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

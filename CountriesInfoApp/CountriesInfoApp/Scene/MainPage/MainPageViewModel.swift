@@ -7,14 +7,9 @@
 import Foundation
 import UIKit
 
-//protocol configuringCell: AnyObject {
-//    func configureCell(_ cell: CountryCell, at indexPath: IndexPath)
-//    func displayCells()
-//}
-
 protocol CountriesViewModelDelegate: AnyObject {
     func countriesFetched(_ countries: [Country])
-    func cellsConfigured()
+    func configureCell(_ cell: CountryCell, indexPath: IndexPath)
     func navigateToDetailsPage(country: Country) //Using to populate details page with infoo
 }
 
@@ -25,8 +20,6 @@ class MainPageViewModel {
     var searchingCountry = [Country]()
     var userSeaching: Bool = false
     weak var delegate: CountriesViewModelDelegate?
-    //weak var delegate: configuringCell?
-    
     
     func viewdidload() {
         fetchData() { [weak self] result in
@@ -43,12 +36,6 @@ class MainPageViewModel {
     func fetchData(completion: @escaping (Result<[Country], Error>) -> Void) {
         NetworkService().getData(urlString: urlString, completion: completion)
     }
-//    
-//    var countryNames: [String] {
-//        countriesArray.map { country in
-//            country.name!.official
-//        }
-//    }
     
     func didSelectRow(index: IndexPath) {
         delegate?.navigateToDetailsPage(country: countriesArray[index.section])
@@ -59,11 +46,17 @@ class MainPageViewModel {
         let country = countriesArray[indexPath.section]
         if userSeaching {
             cell.configureCell(name: searchingCountry[indexPath.section].name!.official, image: searchingCountry[indexPath.section].flags!.png)
+            //delegate?.cellsDidLoad(cell, indexPath: indexPath)
         }
         else {
             cell.configureCell(name: country.name!.official, image: country.flags!.png)
+            //delegate?.cellsDidLoad(cell, indexPath: indexPath)
         }
     }
+    
+//    func cellForRow(cell: CountryCell, at indexPath: IndexPath) {
+//        delegate?.cellsDidLoad(cell, indexPath: indexPath)
+//    }
     
     var filteredCountry = [Country]()
     
