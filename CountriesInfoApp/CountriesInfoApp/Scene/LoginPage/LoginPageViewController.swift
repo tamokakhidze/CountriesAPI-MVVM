@@ -21,7 +21,6 @@ class LoginPageViewController: UIViewController, UIImagePickerControllerDelegate
     var repeatPassword = UITextField()
     var repeatPasswordLabel = UILabel()
     var loginButton = UIButton()
-    let userDefaults = UserDefaults.standard
     let fileManager = FileManager.default
     var documentsDirectoryPath = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first
     let keychainManager = KeyChainManager()
@@ -37,17 +36,21 @@ class LoginPageViewController: UIViewController, UIImagePickerControllerDelegate
         fatalError("init(coder:) has not been implemented")
     }
     
-    //    override func loadView() {
-    //        view = loginPageView
-    //    }
-    //
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "backgroundcolor")
-        //let isFirstLogin = userDefaults.bool(forKey: "isFirstLogin")
-        profileImageViewButton = configureProfileImageViewButton()
-        mainStackView = configureMainStackView()
-        //debugPrintSavedPassword()
+        
+//        if !isFirstLogin() {
+//            navigationController?.pushViewController(MainVC(), animated: false)
+//            
+//        } 
+//        else {
+//            profileImageViewButton = configureProfileImageViewButton()
+//            mainStackView = configureMainStackView()
+//        }
+         profileImageViewButton = configureProfileImageViewButton()
+         mainStackView = configureMainStackView()
+        
         
     }
     
@@ -173,10 +176,6 @@ class LoginPageViewController: UIViewController, UIImagePickerControllerDelegate
         return button
     }
     
-    public func isFirstLogin() -> Bool {
-        userDefaults.set(true, forKey: "isFirstLogin")
-        return userDefaults.bool(forKey: "isFirstLogin")
-    }
     
     func saveCredentialsToKeychain(username: String, password: String) {
         
@@ -213,42 +212,14 @@ class LoginPageViewController: UIViewController, UIImagePickerControllerDelegate
         
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
-        // შევინახოთ ქიჩეინში
-        if isFirstLogin() {
-            saveCredentialsToKeychain(username: username, password: password)
-            userDefaults.set(false, forKey: "isFirstLogin")
-        }
+        saveCredentialsToKeychain(username: username, password: password)
+        UserDefaults.standard.set(false, forKey: "isFirstLogin")
+
         navigationController?.pushViewController(MainVC(), animated: true)
         present(alert, animated: true, completion: nil)
         
     }
     
-    //init() {
-    //    self.mainPageView = MainPageView()
-    //    viewModel = MainPageViewModel()
-    //    super.init(nibName: nil, bundle: nil)
-    //}
-    //
-    //required init?(coder: NSCoder) {
-    //    fatalError("init(coder:) has not been implemented")
-    //}
-    //
-    //override func loadView() {
-    //    view = mainPageView
-    //}
-    //
-    //override func viewDidLoad() {
-    //    super.viewDidLoad()
-    //    view.backgroundColor = UIColor(named: "backgroundcolor")
-    //    mainPageView.searchBar.delegate = self
-    //    configureTableView()
-    //    title = "Countries"
-    //    navigationController?.navigationBar.prefersLargeTitles = true
-    //
-    //    viewModel.delegate = self
-    //    viewModel.viewdidload()
-    //
-    //}
 }
 
 extension UIStackView {
