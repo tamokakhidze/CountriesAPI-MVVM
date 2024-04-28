@@ -116,7 +116,7 @@ class DetailsPageView: UIView {
         divider.widthAnchor.constraint(equalToConstant: 312).isActive = true
         divider.topAnchor.constraint(equalTo: topAnchor, constant: constant).isActive = true
         divider.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        divider.backgroundColor = UIColor(named: "cellbackgroundcolor")
+        divider.backgroundColor = .lightGray
         
         return divider
     }

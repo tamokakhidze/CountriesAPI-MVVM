@@ -28,6 +28,7 @@ class MainVC: UIViewController {
         configureTableView()
         title = "Countries"
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.hidesBackButton = true
         
         viewModel.delegate = self
         viewModel.viewdidload()

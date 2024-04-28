@@ -27,6 +27,8 @@
 		A954C3F72BD92FF3005CF5A4 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3F62BD92FF3005CF5A4 /* MainPageViewModel.swift */; };
 		A954C3FA2BD94950005CF5A4 /* DetailsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3F92BD94950005CF5A4 /* DetailsPageView.swift */; };
 		A954C3FC2BD94984005CF5A4 /* DetailsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3FB2BD94984005CF5A4 /* DetailsPageViewModel.swift */; };
+		A95EB0F62BDE3934005539CF /* stackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95EB0F52BDE3934005539CF /* stackViewExtension.swift */; };
+		A95EB0F82BDE92F9005539CF /* LoginPageViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95EB0F72BDE92F9005539CF /* LoginPageViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		A954C3F62BD92FF3005CF5A4 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
 		A954C3F92BD94950005CF5A4 /* DetailsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageView.swift; sourceTree = "<group>"; };
 		A954C3FB2BD94984005CF5A4 /* DetailsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewModel.swift; sourceTree = "<group>"; };
+		A95EB0F52BDE3934005539CF /* stackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stackViewExtension.swift; sourceTree = "<group>"; };
+		A95EB0F72BDE92F9005539CF /* LoginPageViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 			children = (
 				A92FD9662BD3F27200843793 /* labelExtension.swift */,
 				A914D6952BD6881E00521395 /* imageViewExtension.swift */,
+				A95EB0F52BDE3934005539CF /* stackViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				A943FD902BDC0F4600406FAB /* LoginPageViewController.swift */,
 				A943FD922BDC0F5D00406FAB /* LoginPageViewModel.swift */,
 				A943FD962BDC22DD00406FAB /* KeyChainManager.swift */,
+				A95EB0F72BDE92F9005539CF /* LoginPageViewControllerExtensions.swift */,
 			);
 			path = LoginPage;
 			sourceTree = "<group>";
@@ -254,7 +260,9 @@
 				A954C3FC2BD94984005CF5A4 /* DetailsPageViewModel.swift in Sources */,
 				A954C3F72BD92FF3005CF5A4 /* MainPageViewModel.swift in Sources */,
 				A914D6962BD6881E00521395 /* imageViewExtension.swift in Sources */,
+				A95EB0F82BDE92F9005539CF /* LoginPageViewControllerExtensions.swift in Sources */,
 				A92FD9632BD3ED3600843793 /* Model.swift in Sources */,
+				A95EB0F62BDE3934005539CF /* stackViewExtension.swift in Sources */,
 				A954C3F32BD92F31005CF5A4 /* MainPageView.swift in Sources */,
 				A92FD9672BD3F27200843793 /* labelExtension.swift in Sources */,
 				A943FD932BDC0F5D00406FAB /* LoginPageViewModel.swift in Sources */,

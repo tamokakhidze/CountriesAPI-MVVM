@@ -9,14 +9,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        let isFirstLogin = UserDefaults.standard.bool(forKey: "isFirstLogin")
 
-        if !isFirstLogin {
+        if UserDefaults.standard.bool(forKey: "isFirstLogin") == false {
             navigationController = UINavigationController(rootViewController: LoginPageViewController())
+            print(UserDefaults.standard.bool(forKey: "isFirstLogin"))
         }
         else {
             navigationController = UINavigationController(rootViewController: MainVC())
         }
+        
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
