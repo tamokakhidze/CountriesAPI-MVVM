@@ -26,7 +26,6 @@
 		A954C3F52BD92F88005CF5A4 /* MainViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3F42BD92F88005CF5A4 /* MainViewControllerExtensions.swift */; };
 		A954C3F72BD92FF3005CF5A4 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3F62BD92FF3005CF5A4 /* MainPageViewModel.swift */; };
 		A954C3FA2BD94950005CF5A4 /* DetailsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3F92BD94950005CF5A4 /* DetailsPageView.swift */; };
-		A954C3FC2BD94984005CF5A4 /* DetailsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954C3FB2BD94984005CF5A4 /* DetailsPageViewModel.swift */; };
 		A95EB0F62BDE3934005539CF /* stackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95EB0F52BDE3934005539CF /* stackViewExtension.swift */; };
 		A95EB0F82BDE92F9005539CF /* LoginPageViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95EB0F72BDE92F9005539CF /* LoginPageViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -53,7 +52,6 @@
 		A954C3F42BD92F88005CF5A4 /* MainViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerExtensions.swift; sourceTree = "<group>"; };
 		A954C3F62BD92FF3005CF5A4 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
 		A954C3F92BD94950005CF5A4 /* DetailsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageView.swift; sourceTree = "<group>"; };
-		A954C3FB2BD94984005CF5A4 /* DetailsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewModel.swift; sourceTree = "<group>"; };
 		A95EB0F52BDE3934005539CF /* stackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stackViewExtension.swift; sourceTree = "<group>"; };
 		A95EB0F72BDE92F9005539CF /* LoginPageViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,7 +180,6 @@
 			children = (
 				A92FD9682BD4112D00843793 /* DetailsViewController.swift */,
 				A954C3F92BD94950005CF5A4 /* DetailsPageView.swift */,
-				A954C3FB2BD94984005CF5A4 /* DetailsPageViewModel.swift */,
 			);
 			path = DetailsPage;
 			sourceTree = "<group>";
@@ -257,7 +254,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A954C3FC2BD94984005CF5A4 /* DetailsPageViewModel.swift in Sources */,
 				A954C3F72BD92FF3005CF5A4 /* MainPageViewModel.swift in Sources */,
 				A914D6962BD6881E00521395 /* imageViewExtension.swift in Sources */,
 				A95EB0F82BDE92F9005539CF /* LoginPageViewControllerExtensions.swift in Sources */,

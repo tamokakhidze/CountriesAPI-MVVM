@@ -3,8 +3,17 @@ import UIKit
 class DetailsViewController: UIViewController {
     
     var detailsPageView: DetailsPageView
-    var viewModel: DetailsPageViewModel
     var country: Country
+    
+    init(country: Country) {
+        self.detailsPageView = DetailsPageView()
+        self.country = country
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,19 +26,8 @@ class DetailsViewController: UIViewController {
         setupTapGestureRecognizer(for: detailsPageView.map2, with: googleLink)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func loadView() {
         view = detailsPageView
-    }
-    
-    init(country: Country) {
-        self.detailsPageView = DetailsPageView()
-        viewModel = DetailsPageViewModel()
-        self.country = country
-        super.init(nibName: nil, bundle: nil)
     }
     
     func setupUI() {
@@ -93,7 +91,7 @@ class DetailsViewController: UIViewController {
         }
         
         if let url = detailsPageView.imageToURLMap[imageView] {
-            viewModel.updateView(url: url)
+            UIApplication.shared.open(url)
         }
     }
 }
