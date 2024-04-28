@@ -61,7 +61,7 @@ class LoginPageViewController: UIViewController {
     }
     
     @objc private func loginButtonTapped() {
-        navigateToMainPage(username: loginPageView.username.text, password: loginPageView.password.text, repeatPassword: loginPageView.repeatPassword.text)
+        viewModel.loginButtonWasTapped(username: loginPageView.username.text, password: loginPageView.password.text, repeatPassword: loginPageView.repeatPassword.text)
     }
     
 }
