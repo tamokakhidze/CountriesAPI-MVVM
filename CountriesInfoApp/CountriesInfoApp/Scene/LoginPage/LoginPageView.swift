@@ -25,7 +25,7 @@ class LoginPageView: UIView {
     
     func configureProfileImageViewButton() -> UIButton {
         let profileImageViewButton = UIButton()
-        profileCustomBackground = UIImage(systemName: "photo.badge.plus.fill")!
+        profileCustomBackground = UIImage(named: "profilePhoto")!
         addSubview(profileImageViewButton)
         profileImageViewButton.translatesAutoresizingMaskIntoConstraints = false
         profileImageViewButton.topAnchor.constraint(equalTo: topAnchor, constant: 110).isActive = true
@@ -35,6 +35,7 @@ class LoginPageView: UIView {
         profileImageViewButton.layer.borderWidth = 1
         profileImageViewButton.layer.borderColor = UIColor(.black).cgColor
         profileImageViewButton.layer.cornerRadius = 66
+        profileImageViewButton.contentMode = .center
         profileImageViewButton.setBackgroundImage(profileCustomBackground, for: .normal)
         profileImageViewButton.tintColor = .black
         profileImageViewButton.clipsToBounds = true
@@ -47,13 +48,11 @@ class LoginPageView: UIView {
         addSubview(mainStackView)
         mainStackView.axis = .vertical
         mainStackView.alignment = .center
-        mainStackView.distribution = .fill
-        mainStackView.spacing = 10
+        mainStackView.spacing = 6
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24).isActive = true
         mainStackView.topAnchor.constraint(equalTo: profileImageViewButton.bottomAnchor, constant: 47).isActive = true
-        mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -115).isActive = true
         
         usernameLabel = createInputLabel(text: "მომხმარებლის სახელი")
         username = createInputField(placeholder: "შეიყვანეთ მომხმარებლის სახელი")
@@ -64,7 +63,7 @@ class LoginPageView: UIView {
         loginButton = createButton()
         
         mainStackView.addArrangedSubviews(usernameLabel, username, passwordLabel, password, repeatPasswordLabel, repeatPassword, loginButton)
-        
+      
         if let username = mainStackView.arrangedSubviews.firstIndex(of: username) {
             mainStackView.setCustomSpacing(50, after: mainStackView.arrangedSubviews[username])
         }
@@ -85,9 +84,10 @@ class LoginPageView: UIView {
         labelForInput.textColor = UIColor(named: "textcolor")
         labelForInput.textAlignment = .left
         labelForInput.font.withSize(20)
+        labelForInput.setLineHeight(30)
         labelForInput.translatesAutoresizingMaskIntoConstraints = false
         labelForInput.widthAnchor.constraint(equalToConstant: 327).isActive = true
-        labelForInput.heightAnchor.constraint(equalToConstant: 13).isActive = true
+        //labelForInput.heightAnchor.constraint(equalToConstant: 13).isActive = true
         
         return labelForInput
     }
@@ -106,6 +106,7 @@ class LoginPageView: UIView {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: input.frame.height))
         input.leftView = paddingView
         input.leftViewMode = .always
+        input.layer.borderColor = UIColor(named: "textcolor")?.cgColor
         
         return input
         
