@@ -47,12 +47,12 @@ extension LoginPageViewController: LoginPageViewModelDelegate {
     }
     
 }
-
-extension LoginPageViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.editedImage] as? UIImage {
-            loginPageView.profileImageViewButton.setBackgroundImage(image, for: .normal)
-        }
-        dismiss(animated: true)
-    }
-}
+//
+//extension LoginPageViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        if let image = info[.editedImage] as? UIImage {
+//            loginPageView.profileImageViewButton.setBackgroundImage(image, for: .normal)
+//        }
+//        dismiss(animated: true)
+//    }
+//}

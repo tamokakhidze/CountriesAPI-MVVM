@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class LoginPageViewController: UIViewController {
-
+    
     var loginPageView: LoginPageView
     var viewModel: LoginPageViewModel
     let fileManager = FileManager.default
@@ -66,3 +66,22 @@ class LoginPageViewController: UIViewController {
     
 }
 
+extension LoginPageViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            loginPageView.profileImageViewButton.setBackgroundImage(image, for: .normal)
+            if let imageData = image.jpegData(compressionQuality: 1.0),
+               let documentsDirectoryPath = documentsDirectoryPath {
+                let filename = ("\(image.hashValue).png")
+                let fileURL = documentsDirectoryPath.appendingPathComponent(filename)
+                do {
+                    try imageData.write(to: fileURL)
+                    print("ფოტო შენახულია")
+                } catch {
+                    print("ფოტო არ შენახულა:", error)
+                }
+            }
+        }
+        dismiss(animated: true)
+    }
+}
